@@ -7,6 +7,9 @@ global.debug = false;
 if (os.hostname() === "multivac") 
 	debug = true;
 
+//Log enter
+if (global.debug) console.log("#### Inside of index.js");
+
 //Load the controller
 global.cpmController = require('../controllers/cpm_controller');
 
@@ -15,10 +18,21 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Comparador de prediccions municipals' });
 });
 
+//API REST
+router.get("/municipis", cpmController.index);
+
+//Export
 module.exports = router;
 
-//Show the data
+//Debug the data
 if (global.debug) {
+	console.log("\r\n getMetadataId:");
 	console.log(cpmController.getMetadataId('080898'));
+	console.log("\r\n getForecastId:");
 	console.log(cpmController.getForecastId('080898'));
+	console.log("\r\n getForecastIdDate:");
+	console.log(cpmController.getForecastIdDate('080898', new Date(2016, 0, 1)));
 }
+
+//Log exit
+if (global.debug) console.log("#### Outside of index.js");

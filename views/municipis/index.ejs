@@ -1,0 +1,43 @@
+<table id="municipis">
+	<tr>
+		<td>
+			Municipi: 
+		</td>
+		<td>
+			<select>
+				  <option 
+				  	value="" 
+				  	codi=""
+				  	nom=""
+				  	coordenades-latitud=""
+				  	coordenades-longitud=""
+				  	comarca-codi=""
+				  	comarca-nom=""
+				  	>
+				  </option>
+
+			<% for (var i=0; i<municipis.length; i++) { %>
+				  <option 
+				  	value="<%=municipis[i].codi%>"
+				  	codi="<%=municipis[i].codi%>"
+				  	nom="<%=municipis[i].nom%>"
+				  	coordenades-latitud="<%=municipis[i].coordenades.latitud%>"
+				  	coordenades-longitud="<%=municipis[i].coordenades.longitud%>"
+				  	comarca-codi="<%=municipis[i].comarca.codi%>"
+				  	comarca-nom="<%=municipis[i].comarca.nom%>"
+				  	>
+				  	<%=municipis[i].nom%>
+				  </option>
+			<%	}%>
+			</select>
+		</td>
+	<tr>
+		<td>
+			Comarca:
+		</td>
+		<td>
+			<div id="comarca"></div>
+		</td>
+	</tr>
+</table>
+
