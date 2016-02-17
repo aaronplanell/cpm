@@ -1,0 +1,43 @@
+<table id="<%=idFrame%>">
+	<tr>
+		<td style="min-width:100px">
+			Municipi: 
+		</td>
+		<td style="min-width:100px">
+			<select id="municipis_<%=idFrame%>" onchange="document.getElementById('comarca_<%=idFrame%>').innerHTML = this.options[this.selectedIndex].getAttribute('comarca-nom');">
+				  <option 
+				  	value="" 
+				  	codi=""
+				  	nom=""
+				  	coordenades-latitud=""
+				  	coordenades-longitud=""
+				  	comarca-codi=""
+				  	comarca-nom=""
+				  	>
+				  </option>
+
+			<% for (var i=0; i<municipis.length; i++) { %>
+				  <option 
+				  	value="<%=municipis[i].codi%>"
+				  	codi="<%=municipis[i].codi%>"
+				  	nom="<%=municipis[i].nom%>"
+				  	coordenades-latitud="<%=municipis[i].coordenades.latitud%>"
+				  	coordenades-longitud="<%=municipis[i].coordenades.longitud%>"
+				  	comarca-codi="<%=municipis[i].comarca.codi%>"
+				  	comarca-nom="<%=municipis[i].comarca.nom%>"
+				  	>
+				  	<%=municipis[i].nom%>
+				  </option>
+			<%	}%>
+			</select>
+		</td>
+	<tr>
+		<td style="min-width:100px">
+			Comarca:
+		</td>
+		<td style="min-width:100px">
+			<div id="comarca_<%=idFrame%>"></div>
+		</td>
+	</tr>
+</table>
+

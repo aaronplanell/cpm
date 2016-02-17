@@ -11,7 +11,7 @@ if (os.hostname() === "multivac")
 if (global.debug) console.log("#### Inside of index.js");
 
 //Load the controller
-global.cpmController = require('../controllers/cpm_controller');
+global.controller = require('../controllers/controller');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -19,7 +19,8 @@ router.get('/', function(req, res, next) {
 });
 
 //API REST
-router.get("/municipis", cpmController.index);
+router.get("/municipis/metadades", controller.metadades);
+router.get("/municipis/:uid", controller.municipi);
 
 //Export
 module.exports = router;
@@ -27,11 +28,11 @@ module.exports = router;
 //Debug the data
 if (global.debug) {
 	console.log("\r\n getMetadataId:");
-	console.log(cpmController.getMetadataId('080898'));
+	console.log(controller.getMetadataId('080898'));
 	console.log("\r\n getForecastId:");
-	console.log(cpmController.getForecastId('080898'));
+	console.log(controller.getForecastId('080898'));
 	console.log("\r\n getForecastIdDate:");
-	console.log(cpmController.getForecastIdDate('080898', new Date(2016, 0, 1)));
+	console.log(controller.getForecastIdDate('080898', new Date(2016, 0, 1)));
 }
 
 //Log exit
