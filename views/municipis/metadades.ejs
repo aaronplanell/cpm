@@ -1,10 +1,17 @@
-<table id="<%=idFrame%>">
+<link rel='stylesheet' href='/stylesheets/style.css' />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<table id="<%=idFrame%>" >
 	<tr>
 		<td style="min-width:100px">
 			Municipi: 
 		</td>
 		<td style="min-width:100px">
-			<select id="municipis_<%=idFrame%>" onchange="document.getElementById('comarca_<%=idFrame%>').innerHTML = this.options[this.selectedIndex].getAttribute('comarca-nom');">
+			<select id="municipis_<%=idFrame%>" 
+				onchange="onChangeSelect(
+					'<%=idFrame%>', 
+					this.options[this.selectedIndex].getAttribute('comarca-nom'), 
+					this.options[this.selectedIndex].getAttribute('codi'));
+				">
 				  <option 
 				  	value="" 
 				  	codi=""
@@ -38,6 +45,28 @@
 		<td style="min-width:100px">
 			<div id="comarca_<%=idFrame%>"></div>
 		</td>
+	<tr>
+		<td style="min-width:100px" colspan='2'>
+			<div id="forecast_<%=idFrame%>"></div>
+		</td>
 	</tr>
 </table>
+
+<!-- Load the default values -->
+<script>
+	document.getElementById('municipis_<%=idFrame%>').options.selectedIndex = 0;
+	document.getElementById('comarca_<%=idFrame%>').innerHTML = '';
+	document.getElementById('forecast_<%=idFrame%>').innerHTML = '';
+
+	var onChangeSelect = function (idFrame, comarca_nom, codi) {
+		if (codi==='') {
+			document.getElementById('comarca_<%=idFrame%>').innerHTML = '';
+			document.getElementById('forecast_<%=idFrame%>').innerHTML = '';
+		}
+		else {
+			document.getElementById('comarca_<%=idFrame%>').innerHTML = comarca_nom;
+		 	$('#forecast_<%=idFrame%>').load('/municipis/' + codi);
+		};
+	};
+</script>
 

@@ -1,8 +1,56 @@
-<table >
-	<tr>
-		<td style="min-width:100px">
-			"<%=JSON.stringify(forecast)%>"
-		</td>
-	</tr>
-</table>
+<br>
+<ul>
+	<% for (var i=0; i<dates.length; i++) { %>
+		<li>
+		 	<a href="#"><%=dates[i]%></a> 
+		</li>
+	<% }%>
+</ul>
 
+<table id="<%=forecast.codi%>_detail" codi ="<%=forecast.codi%>">
+		<%for (var i=0; i<forecast.dies.length; i++) { 
+		%>
+			<div id="<%=forecast.codi%>_detail_<%=i%>" >
+				<tr>
+					<td style="min-width:100px" colspan='2'>
+						<%=forecast.dies[i].data%>
+					</td>
+				</tr>
+				<tr>
+					<td style="min-width:100px">
+						precipitacio: 
+					</td>
+					<td style="min-width:100px">
+						<%=forecast.dies[i].variables.precipitacio.valor%><%=forecast.dies[i].variables.precipitacio.unitat%>
+					</td>
+				</tr>
+				<tr>
+					<td style="min-width:100px">
+						tmax: 
+					</td>
+					<td style="min-width:100px">
+						<%=forecast.dies[i].variables.tmax.valor%><%=forecast.dies[i].variables.tmax.unitats%>
+					</td>
+				</tr>
+				<tr>
+					<td style="min-width:100px">
+						tmin: 
+					</td>
+					<td style="min-width:100px">
+						<%=forecast.dies[i].variables.tmin.valor%><%=forecast.dies[i].variables.tmin.unitats%>
+					</td>
+				</tr>
+				<tr>
+					<td style="min-width:100px">
+						estatCel: 
+					</td>
+					<td style="min-width:100px">
+						<%=forecast.dies[i].variables.estatCel.simbol%>
+					</td>
+				</tr>
+			</div>
+
+		<% 
+		}
+		%>
+</table>
