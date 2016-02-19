@@ -41,16 +41,16 @@ li {
 	background-color: #fff;
 	border-bottom-width: 1px;
 	border-bottom-style: solid;
-	border-bottom-color: #CCC;
+	border-bottom-color: #000;
 	border-top-width: 1px;
 	border-top-style: solid;
-	border-top-color: #CCC;
+	border-top-color: #000;
 	border-left-width: 1px;
 	border-left-style: solid;
-	border-left-color: #CCC;
+	border-left-color: #000;
 	border-right-width: 1px;
 	border-right-style: solid;
-	border-right-color: #CCC;
+	border-right-color: #000;
 }
 
 li:hover {
@@ -75,8 +75,8 @@ section {
 	display: inline;
 	border: 1px solid grey;
 	background-color: white;
-	width: 330px;
-	height: 325px;
+	width: 340px;
+	height: 290px;
 }
 
 .municipi_space {
