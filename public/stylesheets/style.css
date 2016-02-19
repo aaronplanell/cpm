@@ -28,19 +28,17 @@ ul {
 }
 
 li {
-	width: 100px;
+	width: 80px;
 	display: inline;
+	text-align: center;	
+	font-weight: bold;
 	border-radius: 25% 25% 0 0;
-}
-
-a {
-	color: #000;
 	text-decoration: none;
-	font-size: 0.9em;
+	font-size: 0.8em;
 	display: block;
 	padding: 6px;
 	float: left;
-	background-color: #ffffff;
+	background-color: #fff;
 	border-bottom-width: 1px;
 	border-bottom-style: solid;
 	border-bottom-color: #CCC;
@@ -55,10 +53,8 @@ a {
 	border-right-color: #CCC;
 }
 
-a:hover {
-	color: #FFF;
-	border-top-width: 3px;
-	background-color: #aaa;
+li:hover {
+	background-color: #ddd;
 }
 
 section {
@@ -79,16 +75,44 @@ section {
 	display: inline;
 	border: 1px solid grey;
 	background-color: white;
-	width: 350px;
-	height: 400px;
+	width: 330px;
+	height: 325px;
 }
 
 .municipi_space {
 	display: inline;
 	background-color: white;
-	width: 50px;
-	height: 50px;
+	width: 5px;
+	height: 5px;
 }
+
+.forecast {
+    left:0;
+    right:0;
+    margin-left:auto;
+    margin-right:auto;
+	text-align: center;	
+}
+
+.forecast_image {
+    min-width: 200px;
+}
+
+.forecast_rainfall {
+	min-width: 75px;
+}
+
+.forecast_min_max {
+	font-size: 24px;
+	font-weight: bold;
+	min-width: 200px;
+}
+
+.forecast_rainfall_text {
+	min-width: 75px;
+	font-weight: bold;
+}
+
 
 footer {
 	text-align: center;	
@@ -97,3 +121,4 @@ footer {
 footer:hover {
 	font-weight: bold;
 }
+

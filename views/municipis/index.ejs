@@ -1,65 +1,60 @@
-<br>
+<link rel='stylesheet' href='/stylesheets/style.css' />
+
 <ul>
 	<% for (var i=0; i<dates.length; i++) { %>
-		<li>
-		 	<a href="selectDate(<%=dates[i]%>)"><%=dates[i]%></a> 
+		<li id="<%=forecast.codi%>_date_<%=i%>" onclick="selectDate(<%=dates.length%>, <%=i%>)">
+		 	<%=dates[i]%>
 		</li>
-	<% }%>
+	<% } %>
 </ul>
 
-<table id="<%=forecast.codi%>_detail" codi ="<%=forecast.codi%>">
-		<%for (var i=0; i<forecast.dies.length; i++) { 
-		%>
-			<div id="<%=forecast.codi%>_detail_<%=i%>" style="display:none" >
+<div id="<%=forecast.codi%>_detail%>">
+	<%for (var i=0; i<forecast.dies.length; i++) { 
+	%>
+		<div id="<%=forecast.codi%>_detail_<%=i%>" style="display:none" >
+			<br>
+			<hr>
+			<table>
 				<tr>
-					<td style="min-width:100px" colspan='2'>
-						<%=forecast.dies[i].data%>
+					<td class="forecast forecast_image">
+						<img src="/images/<%=forecast.dies[i].variables.estatCel.simbol%>.png">
 					</td>
-				</tr>
-				<tr>
-					<td style="min-width:100px">
-						precipitacio: 
-					</td>
-					<td style="min-width:100px">
+					<td class="forecast forecast_rainfall">
 						<%=forecast.dies[i].variables.precipitacio.valor%><%=forecast.dies[i].variables.precipitacio.unitat%>
 					</td>
 				</tr>
 				<tr>
-					<td style="min-width:100px">
-						tmax: 
+					<td class="forecast forecast_min_max">
+						<font color="red"><%=forecast.dies[i].variables.tmax.valor%><%=forecast.dies[i].variables.tmax.unitats%></font>
+						/
+						<font color="blue"><%=forecast.dies[i].variables.tmin.valor%><%=forecast.dies[i].variables.tmin.unitats%></font>
 					</td>
-					<td style="min-width:100px">
-						<%=forecast.dies[i].variables.tmax.valor%><%=forecast.dies[i].variables.tmax.unitats%>
-					</td>
-				</tr>
-				<tr>
-					<td style="min-width:100px">
-						tmin: 
-					</td>
-					<td style="min-width:100px">
-						<%=forecast.dies[i].variables.tmin.valor%><%=forecast.dies[i].variables.tmin.unitats%>
+					<td class="forecast forecast_rainfall_text">
+						Precipitació
 					</td>
 				</tr>
-				<tr>
-					<td style="min-width:100px">
-						estatCel: 
-					</td>
-					<td style="min-width:100px">
-						<%=forecast.dies[i].variables.estatCel.simbol%>
-					</td>
-				</tr>
-			</div>
-
-		<% 
-		}
-		%>
-</table>
+			</table>
+		</div>
+	<% 
+	}
+	%>
+</div>
 
 <script>
+	document.getElementById('<%=forecast.codi%>_date_0').style.backgroundColor = '#ccc';
 	document.getElementById('<%=forecast.codi%>_detail_0').style.display = 'block';
 
-	var selectDate = function (id) {
-		alert(id);
+	var selectDate = function (length, id) {
+		for (var i=0; i<length; i++) {
+			if (id===i) {
+				document.getElementById('<%=forecast.codi%>_date_' + i).style.backgroundColor = '#ccc';
+				document.getElementById('<%=forecast.codi%>_detail_' + i).style.display = 'block';
+			}
+			else {
+				document.getElementById('<%=forecast.codi%>_date_' + i).style.backgroundColor = '#fff';
+				document.getElementById('<%=forecast.codi%>_detail_' + i).style.display = 'none';
+			}
+		};
 	};
 </script>
 
