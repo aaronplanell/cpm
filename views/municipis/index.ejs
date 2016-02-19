@@ -2,7 +2,7 @@
 <ul>
 	<% for (var i=0; i<dates.length; i++) { %>
 		<li>
-		 	<a href="#"><%=dates[i]%></a> 
+		 	<a href="selectDate(<%=dates[i]%>)"><%=dates[i]%></a> 
 		</li>
 	<% }%>
 </ul>
@@ -10,7 +10,7 @@
 <table id="<%=forecast.codi%>_detail" codi ="<%=forecast.codi%>">
 		<%for (var i=0; i<forecast.dies.length; i++) { 
 		%>
-			<div id="<%=forecast.codi%>_detail_<%=i%>" >
+			<div id="<%=forecast.codi%>_detail_<%=i%>" style="display:none" >
 				<tr>
 					<td style="min-width:100px" colspan='2'>
 						<%=forecast.dies[i].data%>
@@ -54,3 +54,12 @@
 		}
 		%>
 </table>
+
+<script>
+	document.getElementById('<%=forecast.codi%>_detail_0').style.display = 'block';
+
+	var selectDate = function (id) {
+		alert(id);
+	};
+</script>
+
